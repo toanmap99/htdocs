@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h2>Post created successful:
+<?php
+echo $content;
+echo "</br>";
+?>
+<a href="displayAllUser.php">Post your blog</a>
+</h2>
+
+</body>
+</html>

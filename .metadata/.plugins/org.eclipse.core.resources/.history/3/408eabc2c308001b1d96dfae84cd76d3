@@ -1,0 +1,15 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h2>Login was successful:
+<?php
+echo " ".$usernames;
+?>
+ </h2>
+
+</body>
+</html>

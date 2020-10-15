@@ -1,0 +1,78 @@
+<!-- Name: Toan Nguyen
+Class: CST-126
+Professor: Glenda Dilts-->
+
+<?php
+include 'myFunctions.php';
+require 'myFunctions.php';
+
+
+// To get all of the value from the input
+$name = $_GET['name'];
+echo "Your name is " . $name . "</br>";
+
+$userName = $_GET['UserName'];
+echo "Your user name is " . $userName . "</br>";
+
+$passwords = $_GET['passwords'];
+echo "Your password is " . $passwords . "</br>";
+
+$email = $_GET['email'];
+echo "Your email is " . $email . "</br>";
+
+$hobby = $_GET['hobby'];
+echo "Your hobby(ies) is/are " . $hobby . "</br>";
+
+
+dbConnect();
+
+if(empty($name))
+{
+    echo "Name is a required field and cannot be blank.</br>";
+    exit;
+    dbConnect()->close;
+}
+
+if (empty($userName))
+{
+    echo "User Name is a required field and cannot be blank. </br>" ;
+    exit;
+    dbConnect()->close;
+}
+
+if(empty($email))
+{
+    echo "Email is a required field and cannot be blank.</br>";
+    exit;
+    dbConnect()->close;
+}
+
+if (empty($hobby))
+{
+    echo "Hobby is a required field and cannot be blank. </br>" ;
+    exit;
+    dbConnect()->close;
+}
+
+
+echo "Congratulation!!! You are now registered! </br>";
+
+// Input the value into the Database
+$sql = "INSERT INTO `registration` (`ID`, `NAME`, `USER_NAME`, `PASSWORD`, `EMAIL`, `HOBBY`) VALUES (NULL, '$name', '$userName', '$passwords', '$email', '$hobby')";
+
+// Condition for success and failure
+if (mysqli_query(dbConnect(), $sql))
+{
+    echo "New record created successfully";
+    exit;
+    dbConnect()->close;
+} 
+
+else
+{
+    echo "Error: " . $sql . "<br>" . mysqli_error(dbConnect());
+    exit;
+    dbConnect()->close;;
+}
+
+?>

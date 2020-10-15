@@ -1,0 +1,17 @@
+<!-- Name: Toan Nguyen
+Class: CST-126
+Professor: Glenda Dilts-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blog - Post</title>
+</head>
+<body>
+<form action= "blogConfig.php" method="get">
+<textarea placeholder = "Content" name = "content" rows="20" cols="50"></textarea><br>
+<input name = "post" type="submit"><br>
+<a href="index.html">Main Menu</a>
+</form>
+</body>
+</html>

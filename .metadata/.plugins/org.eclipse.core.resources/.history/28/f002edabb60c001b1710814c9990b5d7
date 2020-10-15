@@ -1,0 +1,16 @@
+<!-- Name: Toan Nguyen
+Class: CST-126
+Professor: Glenda Dilts-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>My Blog</h2> <br>
+<a href="login.html">Login</a><br>
+<a href="registration.html">Register</a><br>
+<a href="blogPost.html">BlogPost</a><br>
+</body>
+</html>

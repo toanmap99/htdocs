@@ -1,0 +1,16 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h2>Login was successful:
+<?php
+include 'loginHandler.php';
+include('loginResponse.php').$usernames;
+?>
+ </h2>
+
+</body>
+</html>

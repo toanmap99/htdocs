@@ -1,0 +1,44 @@
+<?php
+session_start();
+
+include 'myFunctions.php';
+
+
+$title = $_GET['title'];
+$content = $_GET['content'];
+$userId = $_SESSION['ID'];
+
+$badWords = array("fuck", "asshole", "stupid", "shit");
+$replace = array("****", "*******", "*****", "****");
+
+$title = str_replace($badWords, $replace, $title);
+$content = str_replace($badWords, $replace, $content);
+
+
+dbConnect();
+
+// Input the value into the Database
+$sql = "INSERT INTO blogpost ('ID`, `blogPost`, `registration_ID`) VALUES (NULL, '$content', '$userId')";
+
+if (mysqli_query(dbConnect(), $sql))
+{
+    echo $title."</br></br>";
+    echo $content."</br>";
+    exit;
+    dbConnect()->close;
+}
+
+else
+{
+    echo "Error: " . $sql . "<br>" . mysqli_error(dbConnect());
+    exit;
+    dbConnect()->close;;
+}
+
+
+
+
+
+
+
+

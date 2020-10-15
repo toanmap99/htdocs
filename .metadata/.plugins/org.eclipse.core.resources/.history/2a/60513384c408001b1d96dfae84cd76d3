@@ -1,0 +1,16 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h2>Login was successful:
+<?php
+echo " ".$usernames;
+?>
+<a href="whoAmI.php">Who Am I</a>
+</h2>
+
+</body>
+</html>

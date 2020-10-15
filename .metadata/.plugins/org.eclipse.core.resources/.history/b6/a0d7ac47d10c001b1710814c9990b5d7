@@ -1,0 +1,64 @@
+<!-- Name: Toan Nguyen
+Class: CST-126
+Professor: Glenda Dilts-->
+
+<?php
+require_once 'myFunctions.php';
+
+$usernames = $_GET['username'];
+
+$pass = $_GET['passwords'];
+
+
+
+dbConnect();
+
+// Prevent blank space
+if(empty($usernames))
+{
+    echo "The User Name is a required field and cannot be blank.</br>";
+    exit;
+    mysqli_close($conn);
+}
+
+if (empty($pass))
+{
+    echo "The Password is a required field and cannot be blank. </br>" ;
+    exit;
+    mysqli_close($conn);
+}
+
+
+
+
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql= "SELECT * FROM `registration` WHERE `USER_NAME` LIKE '$usernames' AND `PASSWORD` LIKE '$pass'";
+
+// Check the login function
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) == 1)
+{
+    echo "Login was successfull<br>";
+    exit;
+}
+
+if (mysqli_num_rows($result) == 0)
+{
+    echo "Login failed<br>";
+    exit;
+}
+
+if (mysqli_num_rows($result) >= 2)
+{
+    echo "There are multiple users have registered<br>";
+    exit;
+}
+mysqli_close($conn);
+
+

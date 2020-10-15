@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h2>Login was successful:</h2>
+<?php
+include('loginResponse.php);
+?>
+ 
+
+
+
+</body>
+</html>

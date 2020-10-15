@@ -1,0 +1,7 @@
+<?php
+
+
+$title = $_GET['title'];
+$content = $_GET['content'];
+
+dbConnect();

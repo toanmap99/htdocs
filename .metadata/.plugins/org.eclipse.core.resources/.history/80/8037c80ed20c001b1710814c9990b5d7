@@ -1,0 +1,89 @@
+<!-- Name: Toan Nguyen
+Class: CST-126
+Professor: Glenda Dilts-->
+
+<?php
+// to catch errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+// To get all of the value from the input
+$name = $_GET['name'];
+echo "Your name is " . $name . "</br>";
+
+$userName = $_GET['UserName'];
+echo "Your user name is " . $userName . "</br>";
+
+$passwords = $_GET['passwords'];
+echo "Your password is " . $passwords . "</br>";
+
+$email = $_GET['email'];
+echo "Your email is " . $email . "</br>";
+
+$hobby = $_GET['hobby'];
+echo "Your hobby(ies) is/are " . $hobby . "</br>";
+
+// login to the deginated database 
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$database_name = "myblog";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database_name);
+
+if(empty($name))
+{
+    echo "Name is a required field and cannot be blank.</br>";
+    exit;
+    mysqli_close($conn);
+}
+
+if (empty($userName))
+{
+    echo "User Name is a required field and cannot be blank. </br>" ;
+    exit;
+    mysqli_close($conn);
+}
+
+if(empty($email))
+{
+    echo "Email is a required field and cannot be blank.</br>";
+    exit;
+    mysqli_close($conn);
+}
+
+if (empty($hobby))
+{
+    echo "Hobby is a required field and cannot be blank. </br>" ;
+    exit;
+    mysqli_close($conn);
+}
+
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Congratulation!!! You are now registered! </br>";
+
+// Input the value into the Database
+$sql = "INSERT INTO `registration` (`ID`, `NAME`, `USER_NAME`, `PASSWORD`, `EMAIL`, `HOBBY`) VALUES (NULL, '$name', '$userName', '$passwords', '$email', '$hobby')";
+
+// Condition for success and failure
+if (mysqli_query($conn, $sql))
+{
+    echo "New record created successfully";
+    exit;
+    mysqli_close($conn);
+} else
+{
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    exit;
+    mysqli_close($conn);
+}
+
+?>

@@ -1,0 +1,34 @@
+<?php
+session_start();
+
+include 'myFunctions.php';
+$userN = $_SESSION['USER_NAME'];
+
+dbConnect();
+
+$sql_select  = "SELECT * FROM `blogpost` WHERE 1";
+
+$result = mysqli_query(dbConnect(), $sql);
+
+$sql  = "SELECT * FROM `blogpost` WHERE 1";
+
+$result = mysqli_query(dbConnect(), sql);
+
+if (mysqli_num_rows($result) > 0)
+{
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result))
+    {
+        echo $title."</br>";
+        echo $userN.":  " .$row['blogPost']. "</br>";
+        
+    }
+    exit;
+}
+else
+{
+    echo "0 results";
+    exit;
+}
+dbConnect()->close;
+

@@ -1,0 +1,46 @@
+<?php
+
+include 'myfuncs.php';
+
+$usernames = $_POST['username'];
+
+$pass = $_POST['passwords'];
+
+if(empty($usernames))
+{
+    echo "The User Name is a required field and cannot be blank.</br>";
+}
+
+if (empty($pass))
+{
+    echo "The Password is a required field and cannot be blank. </br>" ;
+}
+
+
+$sql = "SELECT * FROM `users` WHERE `USERNAME` LIKE '$usernames' AND `PASSWORD` LIKE '$pass' ORDER BY `USERNAME` ASC ";
+
+$result = mysqli_query(dbConnect(), $sql);
+
+
+if (mysqli_num_rows($result) == 1)
+{
+    include('loginResponse.php');
+}
+
+if (mysqli_num_rows($result) == 0)
+{
+    include('loginFailed.php');
+}
+
+if (mysqli_num_rows($result) >= 2)
+{
+    echo "There are multiple users have registered<br>";
+}
+
+dbConnect()->close();
+
+?>
+
+
+
+
