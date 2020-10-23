@@ -40,6 +40,9 @@ saveUserName($row["USER_NAME"]);		// Save User Name in the Session
 
 if (mysqli_num_rows($result) == 1)
 {
+    $_SESSION['USER_NAME'] = $row['USER_NAME'];
+    $_SESSION['ID'] = $row['ID'];
+    $_SESSION['ROLE'] = $row['ROLE'];
     include ('loginR.php');
 
 }
