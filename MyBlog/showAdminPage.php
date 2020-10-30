@@ -2,6 +2,8 @@
 session_start();
 require_once 'myFunctions.php';
 
+
+// Check if you are an admin
 if ($_SESSION['ROLE'] != 'admin')
 {
     echo "Please login as an admin<br>";

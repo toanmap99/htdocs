@@ -7,6 +7,8 @@ echo "We plan to edit id ". $id."<br>";
 
 require_once 'myFunctions.php';
 
+// Display and show the edit page interface
+
 if(dbConnect())
 {
     $sql = "SELECT * FROM `blogpost` WHERE `blogpost`.`ID` = '$id' LIMIT 1";

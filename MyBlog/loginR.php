@@ -5,6 +5,7 @@
 
 <h2>Login was successful:
 <?php
+// Display the User name after successfull log in and show access to ONLY admin
 echo " ".$usernames;
 echo "</br>";
 ?>
