@@ -6,6 +6,7 @@ Professor: Glenda Dilts-->
 
 include 'myFunctions.php';
 
+
 $usernames = $_GET['username'];
 
 $pass = $_GET['passwords'];
@@ -26,7 +27,6 @@ if (empty($pass))
     exit;
     dbConnect()->close;
 }
-
 
 
 $sql= "SELECT * FROM `registration` WHERE `USER_NAME` LIKE '$usernames' AND `PASSWORD` LIKE '$pass'";

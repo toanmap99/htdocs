@@ -17,7 +17,9 @@ if (dbConnect() && isset($_SESSION['ID']) && $role = "admin")
    if ($result)
    {
        echo "Post updated<br>";
-       echo "Click <a href='showAdminPage.php'>Admin</a> to return <br>";
+       if ($role == "admin")
+           echo "Click <a href='showAdminPage.php'>Admin</a> to return <br>";
+           
        
    }
    else
@@ -26,9 +28,9 @@ if (dbConnect() && isset($_SESSION['ID']) && $role = "admin")
    }
 }
 
-
 else
 {
     echo "error connecting ".mysqli_connect_error();
 }
 
+echo "Click <a href='displayAllUser.php'>Blog if not Admin</a> to return <br>";
