@@ -14,6 +14,7 @@ echo "</br>";
 </h2>
 <?php if ($_SESSION['ROLE'] == 'admin'):?>
 <a href="showAdminPage.php">Admin</a><br>
+<a href="showCommentsAdmin.php">Admin Comments</a><br>
 <?php endif;?>
 </body>
 </html>

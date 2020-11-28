@@ -21,27 +21,26 @@ if (mysqli_num_rows($result) > 0)
     {
         $blogID = $row['ID'];
         echo $row['registration_USER_NAME'].":  " .$row['blogPost']. "</br>";
+        echo "Comments: <br>";
+        
+        //output the comments
         $sql_comments = "SELECT * FROM comments_table WHERE blogpost_ID = '$blogID'";
         $result_comments = mysqli_query(dbConnect(), $sql_comments);
-        
-        if ($result_comments)
+        if($result_comments)
         {
-            while ($row_comments = mysqli_fetch_array($result_comments))
+            while($row_comments = mysqli_fetch_assoc($result_comments))
             {
-                echo $row_comments['comments_text']."<br>";
-                echo "Comment made by user ". $row_comments['registration_USER_NAME']. "<br>";
-                echo "Rating made by user ". $row_comments['rate']. "<br>";
+                echo "Comment user ".$row_comments['registration_USER_NAME']."<br>";
+                echo "Comment text ".$row_comments['comments_text']."<br>";
+                echo "Rate ".$row_comments['rate']."<br>";
+                echo "-----------------<br>";
             }
         }
+        
         ?>
         <form action="processDeleteItem.php">
         <input type ="hidden" name = "ID" value = <?php echo $row['ID']?>></input>
         <button type="submit">Delete</button>
-        </form>
-        
-        <form action="showEditForm.php">
-        <input type ="hidden" name = "ID" value = <?php echo $row['ID']?>></input>
-        <button type="submit">Edit</button>
         </form>
         
         <?php
